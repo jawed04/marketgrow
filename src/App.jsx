@@ -25,7 +25,7 @@ import Cookies from "./pages/Cookies";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./pages/ScrollToTop";
-import DashboardOverview from "./pages/dashboard/DashboardOverview";
+import DashboardOverview from "./pages/Dashboard/DashboardOverview";
 import Login from "./pages/Auth/Login";
 
 const ProtectedRoute = ({ children }) => {
