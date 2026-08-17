@@ -224,7 +224,7 @@ const Register = () => {
                       onChange={handleChange}
                       required
                       variant="outlined"
-                      placeholder="Md Jawed Hussain"
+                      placeholder="Anjali"
                     />
 
                     <TextField

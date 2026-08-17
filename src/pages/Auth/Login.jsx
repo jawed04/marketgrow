@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -16,20 +16,20 @@ import {
   Snackbar,
   Alert,
   CircularProgress,
-} from '@mui/material';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircle';
-import GoogleIcon from '@mui/icons-material/Google';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+} from "@mui/material";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircle";
+import GoogleIcon from "@mui/icons-material/Google";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const highlights = [
-  'Access personalized growth dashboards',
-  'Resume interactive learning modules anytime',
-  'Connect custom domain analytics',
+  "Access personalized growth dashboards",
+  "Resume interactive learning modules anytime",
+  "Connect custom domain analytics",
 ];
 
 const Login = () => {
@@ -38,19 +38,23 @@ const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     rememberMe: false,
   });
 
-  const [toast, setToast] = useState({ open: false, message: '', severity: 'info' });
+  const [toast, setToast] = useState({
+    open: false,
+    message: "",
+    severity: "info",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, checked, type } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -61,25 +65,37 @@ const Login = () => {
     const result = login(formData.email, formData.password);
 
     if (result.success) {
-      setToast({ open: true, message: result.message, severity: 'success' });
+      setToast({ open: true, message: result.message, severity: "success" });
       setTimeout(() => {
-        navigate('/dashboard-Overview');
+        navigate("/dashboard-Overview");
       }, 3000);
     } else {
       setIsSubmitting(false);
-      setToast({ open: true, message: result.message, severity: 'error' });
+      setToast({ open: true, message: result.message, severity: "error" });
     }
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#F8FAFC', display: 'flex', alignItems: 'center', py: { xs: 4, md: 8 } }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        bgcolor: "#F8FAFC",
+        display: "flex",
+        alignItems: "center",
+        py: { xs: 4, md: 8 },
+      }}
+    >
       <Snackbar
         open={toast.open}
         autoHideDuration={4000}
         onClose={() => setToast((prev) => ({ ...prev, open: false }))}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
-        <Alert severity={toast.severity} variant="filled" sx={{ width: '100%' }}>
+        <Alert
+          severity={toast.severity}
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
           {toast.message}
         </Alert>
       </Snackbar>
@@ -89,9 +105,9 @@ const Login = () => {
           elevation={0}
           sx={{
             borderRadius: 4,
-            overflow: 'hidden',
-            border: '1px solid #E2E8F0',
-            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.04)',
+            overflow: "hidden",
+            border: "1px solid #E2E8F0",
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.04)",
           }}
         >
           <Grid container>
@@ -99,36 +115,82 @@ const Login = () => {
             <Grid
               size={{ xs: 12, md: 5 }}
               sx={{
-                background: 'linear-gradient(135deg, #090D16 0%, #0F1E36 100%)',
-                color: '#FFFFFF',
+                background: "linear-gradient(135deg, #090D16 0%, #0F1E36 100%)",
+                color: "#FFFFFF",
                 p: { xs: 4, sm: 5, md: 6 },
-                display: 'flex',
-                flexDirection: 'column',
-                justify: 'space-between',
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
               }}
             >
               <Box>
-                <Box component={Link} to="/" sx={{ display: 'inline-flex', alignItems: 'center', gap: 1.2, textDecoration: 'none', mb: 4 }}>
-                  <Box sx={{ width: 36, height: 36, borderRadius: 2, bgcolor: '#0F52BA', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <TrendingUpIcon sx={{ fontSize: 22, color: '#FFFFFF' }} />
+                <Box
+                  component={Link}
+                  to="/"
+                  sx={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 1.2,
+                    textDecoration: "none",
+                    mb: 4,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: 2,
+                      bgcolor: "#0F52BA",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <TrendingUpIcon sx={{ fontSize: 22, color: "#FFFFFF" }} />
                   </Box>
-                  <Typography variant="h6" sx={{ fontWeight: 800, color: '#FFFFFF', letterSpacing: '-0.5px' }}>
-                    Market<span style={{ color: '#4ADE80' }}>Grow</span>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 800,
+                      color: "#FFFFFF",
+                      letterSpacing: "-0.5px",
+                    }}
+                  >
+                    Market<span style={{ color: "#4ADE80" }}>Grow</span>
                   </Typography>
                 </Box>
 
-                <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, fontSize: { xs: '1.5rem', sm: '2rem' } }}>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontWeight: 800,
+                    mb: 2,
+                    fontSize: { xs: "1.5rem", sm: "2rem" },
+                  }}
+                >
                   Welcome Back!
                 </Typography>
-                <Typography variant="body2" sx={{ color: '#94A3B8', mb: 4, lineHeight: 1.6 }}>
-                  Log in to manage your digital campaigns, monitor local search visibility, and continue your learning track.
+                <Typography
+                  variant="body2"
+                  sx={{ color: "#94A3B8", mb: 4, lineHeight: 1.6 }}
+                >
+                  Log in to manage your digital campaigns, monitor local search
+                  visibility, and continue your learning track.
                 </Typography>
 
                 <Stack spacing={2.5} sx={{ mb: 4 }}>
                   {highlights.map((item, idx) => (
-                    <Box key={idx} sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                      <CheckCircleOutlineIcon sx={{ color: '#4ADE80', fontSize: 20 }} />
-                      <Typography variant="body2" sx={{ color: '#CBD5E1', fontWeight: 500 }}>
+                    <Box
+                      key={idx}
+                      sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
+                    >
+                      <CheckCircleOutlineIcon
+                        sx={{ color: "#4ADE80", fontSize: 20 }}
+                      />
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "#CBD5E1", fontWeight: 500 }}
+                      >
                         {item}
                       </Typography>
                     </Box>
@@ -136,20 +198,38 @@ const Login = () => {
                 </Stack>
               </Box>
 
-              <Typography variant="caption" sx={{ color: '#64748B' }}>
+              <Typography variant="caption" sx={{ color: "#64748B" }}>
                 © {new Date().getFullYear()} MarketGrow. All rights reserved.
               </Typography>
             </Grid>
 
             {/* Right Column */}
-            <Grid size={{ xs: 12, md: 7 }} sx={{ p: { xs: 3, sm: 5, md: 6 }, bgcolor: '#FFFFFF' }}>
-              <Box sx={{ maxWidth: 440, mx: 'auto' }}>
-                <Typography variant="h5" sx={{ fontWeight: 800, color: '#0F172A', mb: 0.5 }}>
+            <Grid
+              size={{ xs: 12, md: 7 }}
+              sx={{ p: { xs: 3, sm: 5, md: 6 }, bgcolor: "#FFFFFF" }}
+            >
+              <Box sx={{ maxWidth: 440, mx: "auto" }}>
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: 800, color: "#0F172A", mb: 0.5 }}
+                >
                   Sign In to Account
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                  Don't have an account?{' '}
-                  <Box component={Link} to="/register" sx={{ color: '#0F52BA', textDecoration: 'none', fontWeight: 700 }}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mb: 3 }}
+                >
+                  Don't have an account?{" "}
+                  <Box
+                    component={Link}
+                    to="/register"
+                    sx={{
+                      color: "#0F52BA",
+                      textDecoration: "none",
+                      fontWeight: 700,
+                    }}
+                  >
                     Create Account
                   </Box>
                 </Typography>
@@ -160,7 +240,14 @@ const Login = () => {
                       fullWidth
                       variant="outlined"
                       startIcon={<GoogleIcon />}
-                      sx={{ py: 1.2, borderRadius: 2.5, borderColor: '#E2E8F0', color: '#334155', textTransform: 'none', fontWeight: 600 }}
+                      sx={{
+                        py: 1.2,
+                        borderRadius: 2.5,
+                        borderColor: "#E2E8F0",
+                        color: "#334155",
+                        textTransform: "none",
+                        fontWeight: 600,
+                      }}
                     >
                       Google
                     </Button>
@@ -170,14 +257,23 @@ const Login = () => {
                       fullWidth
                       variant="outlined"
                       startIcon={<GitHubIcon />}
-                      sx={{ py: 1.2, borderRadius: 2.5, borderColor: '#E2E8F0', color: '#334155', textTransform: 'none', fontWeight: 600 }}
+                      sx={{
+                        py: 1.2,
+                        borderRadius: 2.5,
+                        borderColor: "#E2E8F0",
+                        color: "#334155",
+                        textTransform: "none",
+                        fontWeight: 600,
+                      }}
                     >
                       GitHub
                     </Button>
                   </Grid>
                 </Grid>
 
-                <Divider sx={{ my: 3, color: '#94A3B8', fontSize: '0.75rem' }}>OR SIGN IN WITH EMAIL</Divider>
+                <Divider sx={{ my: 3, color: "#94A3B8", fontSize: "0.75rem" }}>
+                  OR SIGN IN WITH EMAIL
+                </Divider>
 
                 <Box component="form" onSubmit={handleSubmit}>
                   <Stack spacing={2.5}>
@@ -193,34 +289,48 @@ const Login = () => {
                       placeholder="name@company.com"
                     />
 
-                  <TextField
-  fullWidth
-  label="Password"
-  name="password"
-  type={showPassword ? 'text' : 'password'}
-  value={formData.password}
-  onChange={handleChange}
-  required
-  variant="outlined"
-  slotProps={{
-    input: {
-      endAdornment: (
-        <InputAdornment position="end">
-          <IconButton
-            onClick={() => setShowPassword((prev) => !prev)}
-            onMouseDown={(e) => e.preventDefault()}
-            edge="end"
-            aria-label={showPassword ? 'Hide password' : 'Show password'}
-          >
-            {showPassword ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small" />}
-          </IconButton>
-        </InputAdornment>
-      ),
-    },
-  }}
-/>
+                    <TextField
+                      fullWidth
+                      label="Password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
+                      variant="outlined"
+                      slotProps={{
+                        input: {
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                onMouseDown={(e) => e.preventDefault()}
+                                edge="end"
+                                aria-label={
+                                  showPassword
+                                    ? "Hide password"
+                                    : "Show password"
+                                }
+                              >
+                                {showPassword ? (
+                                  <VisibilityOff fontSize="small" />
+                                ) : (
+                                  <Visibility fontSize="small" />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
+                        },
+                      }}
+                    />
 
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
                       <FormControlLabel
                         control={
                           <Checkbox
@@ -230,9 +340,22 @@ const Login = () => {
                             color="primary"
                           />
                         }
-                        label={<Typography variant="body2" color="text.secondary">Remember me</Typography>}
+                        label={
+                          <Typography variant="body2" color="text.secondary">
+                            Remember me
+                          </Typography>
+                        }
                       />
-                      <Box component={Link} to="#" sx={{ color: '#0F52BA', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 600 }}>
+                      <Box
+                        component={Link}
+                        to="#"
+                        sx={{
+                          color: "#0F52BA",
+                          textDecoration: "none",
+                          fontSize: "0.875rem",
+                          fontWeight: 600,
+                        }}
+                      >
                         Forgot password?
                       </Box>
                     </Box>
@@ -246,15 +369,19 @@ const Login = () => {
                       sx={{
                         py: 1.5,
                         borderRadius: 2.5,
-                        bgcolor: '#0F52BA',
+                        bgcolor: "#0F52BA",
                         fontWeight: 700,
-                        textTransform: 'none',
-                        fontSize: '1rem',
-                        boxShadow: '0 4px 12px rgba(15, 82, 186, 0.25)',
-                        '&:hover': { bgcolor: '#0B3E8C' },
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        boxShadow: "0 4px 12px rgba(15, 82, 186, 0.25)",
+                        "&:hover": { bgcolor: "#0B3E8C" },
                       }}
                     >
-                      {isSubmitting ? <CircularProgress size={24} sx={{ color: '#FFFFFF' }} /> : 'Sign In'}
+                      {isSubmitting ? (
+                        <CircularProgress size={24} sx={{ color: "#FFFFFF" }} />
+                      ) : (
+                        "Sign In"
+                      )}
                     </Button>
                   </Stack>
                 </Box>
