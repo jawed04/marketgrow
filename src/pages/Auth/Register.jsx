@@ -34,7 +34,7 @@ const benefits = [
   'Unlock free local SEO & marketing tools',
 ];
 
-const Register = () => {
+const Register= () => {
   const navigate = useNavigate();
   const { register } = useAuth();
 

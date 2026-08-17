@@ -32,7 +32,7 @@ const highlights = [
   "Connect custom domain analytics",
 ];
 
-const Login = () => {
+const Login= () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 

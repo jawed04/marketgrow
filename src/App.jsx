@@ -13,12 +13,10 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import LearningHub from "./pages/LearningHub";
 import Tools from "./pages/Tools";
-import Login from "./pages/auth/Login";
-import DashboardOverview from "./pages/dashboard/DashboardOverview";
 import Footer from "./components/Footer";
 import DigitalMarketing from "./pages/DigitalMarketing";
 import SmallBusiness from "./pages/SmallBusiness";
-import Register from "./pages/auth/Register";
+import Register from "./pages/Auth/Register";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
@@ -27,6 +25,8 @@ import Cookies from "./pages/Cookies";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./pages/ScrollToTop";
+import DashboardOverview from "./pages/dashboard/DashboardOverview";
+import Login from "./pages/Auth/Login";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -47,8 +47,8 @@ function App() {
             <Route path="/learning-hub" element={<LearningHub />} />
             <Route path="/small-business" element={<SmallBusiness />} />
             <Route path="/tools" element={<Tools />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
@@ -60,7 +60,7 @@ function App() {
               path="/dashboard-Overview"
               element={
                 <ProtectedRoute>
-                  <DashboardOverview />
+                  <DashboardOverview/>
                 </ProtectedRoute>
               }
             />
